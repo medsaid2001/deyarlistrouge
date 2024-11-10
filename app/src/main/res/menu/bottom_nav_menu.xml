@@ -1,0 +1,20 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/personmenu"
+        android:title="Liste Valider"
+        android:icon="@drawable/accept"
+        app:iconTint="@color/green" /> <!-- Apply green tint for "valider" -->
+
+    <item
+        android:id="@+id/homemenu"
+        android:title="En Attente"
+        android:icon="@drawable/dashboard"/>
+
+    <item
+        android:id="@+id/settingsmenu"
+        android:title="Liste Rejeter"
+        android:iconTint="@color/red"
+        android:icon="@drawable/cross"
+        app:iconTint="@color/red" /> <!-- Apply red tint for "rejeter" -->
+</menu>

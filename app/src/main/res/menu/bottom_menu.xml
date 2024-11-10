@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/settings"
+        android:title="Paramètres"
+        android:orderInCategory="0"
+        android:icon="@drawable/settings"/>
+
+    <item
+        android:id="@+id/profile"
+        android:title="profil"
+        android:orderInCategory="1"
+        android:icon="@drawable/profile"
+        />
+
+
+    <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:orderInCategory="3"
+        android:icon="@drawable/dashboard"
+        />
+    <item
+        android:id="@+id/info"
+        android:title="Info"
+        android:orderInCategory="3"
+        android:icon="@drawable/info" />
+    <item
+        android:id="@+id/edit"
+        android:title="Modifier"
+        android:orderInCategory="4"
+        android:icon="@drawable/edit" />
+
+</menu>

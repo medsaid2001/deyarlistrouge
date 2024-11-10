@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name">List Rouge</string>
+    <string name="hello">Bonjour</string>
+    <string name="name">Sidi Ali</string>
+    <string name="search">rechercher</string>
+    <string name="identification">Identification</string>
+    <string name="redlist">Liste Rouge</string>
+    <string name="camera">Camera</string>
+    <string name="myaddedlist">Ma liste</string>
+    <string name="all_list">Tous les Listes</string>
+    <string name="loadfile">Charger Photo</string>
+    <string name="addpersone">Ajouter une persone</string>
+    <string name="persone">Persone</string>
+    <string name="addcar">Ajouter une voiture</string>
+    <string name="car">Voiture</string>
+    <string name="authentification">Authentification</string>
+    <string name="greencard">Carte Grise</string>
+    <string name="SEARCHCAR">Chercher</string>
+    <string name="newimage_details">Identifier une personne en utilisant la caméra mobile</string>
+    <string name="identify_picture">Identification par image</string>
+    <string name="identify_picture_details">Identifier une personne en utilisant une image existante</string>
+    <string name="fullid">Identification complète</string>
+    <string name="fullid_details">Identifier une personne avec une empreinte digitale ou une image du visage</string>
+    <string name="authenticate_person">Authentifier une personne</string>
+    <string name="authenticate_person_details">Authentifier une personne en utilisant l\'identifiant national</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Bonjour fragment vierge</string>
+    <string name="login_email_hint">E-mail</string>
+    <string name="nni">NNI</string>
+    <string name="nni2">numéro national d\'identité</string>
+    <string name="mobile">Téléphone</string>
+    <string name="login">Connexion</string>
+    <string name="login_password_hint">Mot de passe</string>
+    <string name="picture">Identifier</string>
+    <string name="description_info">Info</string>
+    <string name="request_permission">Cet exemple nécessite l\'autorisation de la caméra.</string>
+    <string name="camera_error">Cet appareil ne prend pas en charge l\'API Camera2.</string>
+    <string name="noface">aucun visage n\'a été détecté ! sans la détection du visage, le processus ne peut pas être complété.</string>
+    <string name="error500">une erreur interne s\'est produite, contactez notre support et signalez le problème</string>
+    <string name="error404">la personne que vous essayez d\'identifier n\'a pas été trouvée</string>
+    <string name="resolution">sélectionné la résolution pour la caméra</string>
+    <string name="empreinte">Empreinte</string>
+    <string name="facedetection">détection de visage</string>
+    <string name="facedetection2">Activer la détection de visage pour chaque image téléchargée</string>
+    <string name="livefacedetection">détection de visage en direct</string>
+    <string name="livefacedetection2">Activer la détection de visage en direct sur l\'aperçu de la caméra, cela activera le mode de détection automatique et il ne sera pas nécessaire de cliquer sur le bouton identifier</string>
+    <string name="syncredlist">Synchronisez la liste rouge</string>
+    <string name="syncredlistdetails">Synchronisez la liste rouge pour obtenir les dernières informations</string>
+    <string-array name="structure_array">
+        <item>ARME</item>
+        <item>GENDARMERIE</item>
+        <item>GARD</item>
+        <item>POLICE</item>
+        <item>AUTRE</item>
+    </string-array>
+    <string-array name="type_object">
+        <item>VOITURE</item>
+        <item>PERSONNNE</item>
+        <item>GARD</item>
+        <item>POLICE</item>
+        <item>AUTRE</item>
+    </string-array>
+</resources>

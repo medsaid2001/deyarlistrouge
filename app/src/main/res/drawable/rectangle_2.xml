@@ -1,0 +1,8 @@
+<!-- res/drawable/rectangle_2.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#E0E0E0" /> <!-- Background color -->
+    <corners android:radius="16dp" />  <!-- Corner radius -->
+    <stroke
+        android:width="2dp"
+        android:color="#272360" />     <!-- Optional border -->
+</shape>

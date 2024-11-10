@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/button_gradient"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:layout_margin="8dp"> <!-- Add margin here -->
+
+    <TextView
+        android:id="@+id/textViewNNI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="NNI"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/infobutton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/buttonDelete"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/delete"
+        app:layout_constraintEnd_toStartOf="@+id/buttonEdit"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/infobutton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="18dp"
+        android:src="@drawable/info"
+        app:layout_constraintEnd_toStartOf="@+id/buttonDelete"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/buttonEdit"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/editbtn"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/textViewConduitContact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Conduit Contact:"
+        android:textSize="14sp"
+        android:layout_marginLeft="5dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNNI" />
+
+    <TextView
+        android:id="@+id/textViewConduitContact2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Conduit Contact"
+        android:layout_marginLeft="10dp"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/textViewConduitContact"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNNI" />
+
+    <TextView
+        android:id="@+id/textViewDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Description:"
+        android:textSize="14sp"
+        android:layout_marginLeft="5dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewConduitContact" />
+
+    <TextView
+        android:id="@+id/textViewDescription2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Description"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="14sp"
+
+        app:layout_constraintStart_toEndOf="@+id/textViewDescription"
+        app:layout_constraintTop_toBottomOf="@+id/textViewConduitContact" />
+
+    <TextView
+        android:id="@+id/nud"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="Nud: "
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDescription" />
+
+    <TextView
+        android:id="@+id/nudtxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Description"
+        android:textSize="16sp"
+
+        app:layout_constraintStart_toEndOf="@+id/nud"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDescription2" />
+
+    <TextView
+        android:id="@+id/requestid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="RequestID: "
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nud" />
+
+    <TextView
+        android:id="@+id/requestidtxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Description"
+        android:textSize="16sp"
+
+        app:layout_constraintStart_toEndOf="@+id/requestid"
+        app:layout_constraintTop_toBottomOf="@+id/nudtxt" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
