@@ -1,6 +1,9 @@
 package mr.gov.listerouge;
 
 public class Constant {
+    public static  String API_URL_IDENTIFY = "https://api-houwiyeti.anrpts.gov.mr/houwiyetiapi/v1/partners/identify2";
+    public static  String API_URL_AUTNETICATE = "https://api-houwiyeti.anrpts.gov.mr/houwiyetiapi/v1/partners/authenticte";
+
     public static String MOBILE_NUMBER = "MOBILE_NUMBER";
     public static String APPNAME = "deyar_redlist";
     public static String ENTITY_KEY = "a96e90c5-d561-4a1d-8307-a22b8999cc9f";

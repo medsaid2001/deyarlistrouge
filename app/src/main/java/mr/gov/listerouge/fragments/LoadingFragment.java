@@ -126,6 +126,9 @@ public class LoadingFragment extends Fragment implements FinishCallback {
                 } else if (type == 4) {
                     authenticate(responseString);
                 }
+                else if (type == 5) {
+                    getnudinfo(nni,sn);
+                }
             }
         }
 
@@ -280,6 +283,59 @@ public class LoadingFragment extends Fragment implements FinishCallback {
             }
         }).start();
     }
+    private void getnudinfo(String nud,String serial) {
+        new Thread(() -> {
+            try {
+                OkHttpClient client = new OkHttpClient.Builder().build();
+                String url = "https://api-houwiyeti.anrpts.gov.mr/houwiyetiapi/v1/partners/getNudInfos" +
+                        "?nud=" + nud ;
+
+                JSONObject jsonBody = new JSONObject();
+                jsonBody.put("deviceSn",serial);
+                JSONArray coordinates = new JSONArray();
+                double[] cdn = {loca.getCoordinates().getLnt(), loca.getCoordinates().getLng()};
+
+                coordinates.put(cdn[0]);
+                coordinates.put(cdn[1]);
+                JSONObject locationObject = new JSONObject();
+                locationObject.put("type", "Point");
+                locationObject.put("coordinates", coordinates);
+                jsonBody.put("position", locationObject);
+                MediaType mediaType = MediaType.parse("application/json");
+                RequestBody requestb = RequestBody.create(mediaType, jsonBody.toString());
+                Request request = new Request.Builder()
+                        .url(url)
+                        .method("POST", requestb)
+                        .addHeader("entity-Api-Key", "a96e90c5-d561-4a1d-8307-a22b8999cc9f")
+                        .addHeader("Accept", "application/json")
+                        .addHeader("app-name", APPNAME)
+                        .addHeader("app-version", Integer.toString(appcode))
+                        .build();
+                Response response = client.newCall(request).execute();
+                if (response.isSuccessful()) {
+                    String responseBody = response.body().string();
+                    NudInfoFragment nudInfoFragment = new NudInfoFragment();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("responseString", responseBody);
+                    nudInfoFragment.setArguments(bundle);
+
+                    if (isAdded()) {
+                        requireActivity().getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.frame_layout, nudInfoFragment)
+                                .commit();
+                    }
+                } else {
+                    callback.onError(String.valueOf(response.code()));
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+                callback.onError(e.getMessage());
+            } catch (JSONException e) {
+                callback.onError(e.getMessage());
+            }
+        }).start();
+    }
+
 
     private void authenticate(String json) {
         final String ss = json;

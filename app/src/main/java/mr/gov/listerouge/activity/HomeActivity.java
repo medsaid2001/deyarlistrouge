@@ -55,10 +55,7 @@ public class HomeActivity extends AppCompatActivity implements FinishCallback {
                 replaceFragment(new DashboardFragment());
             }
         }
-         // Default fragment
 
-        // Start Sync Service
-       //
     }
 
     private void setupBottomNavigation() {

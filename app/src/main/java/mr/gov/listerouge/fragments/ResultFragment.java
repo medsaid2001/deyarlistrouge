@@ -29,6 +29,7 @@ public class ResultFragment extends Fragment {
     private Bundle savedInstanceState;
     private SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
+
     public ResultFragment() {
         // Required empty public constructor
     }
@@ -43,9 +44,11 @@ public class ResultFragment extends Fragment {
     }
 
     private TextView textName, textTypePerson, textNNI, textRepresentationId, textScore, textDecision, textRequestId, textNUD;
-   private ImageView backbtn;
-   Context context;
-   private ImageView btn;
+    private ImageView backbtn;
+    private String nud;
+    Context context;
+    private ImageView btn;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -55,6 +58,7 @@ public class ResultFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_result, container, false);
         return view;
     }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -69,13 +73,13 @@ public class ResultFragment extends Fragment {
         textTypePerson = view.findViewById(R.id.typepersonne);
         textDecision = view.findViewById(R.id.text_decision);
         backbtn = view.findViewById(R.id.backbutton);
-       // textNUD = view.findViewById(R.id.nud);
+        // textNUD = view.findViewById(R.id.nud);
         btn = view.findViewById(R.id.morebutton);
         context = getContext();
         backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               IdentificationFragment fragment = new IdentificationFragment();
+                IdentificationFragment fragment = new IdentificationFragment();
                 getActivity().getSupportFragmentManager().beginTransaction()
                         .replace(R.id.frame_layout, fragment)
                         .commit();
@@ -83,7 +87,7 @@ public class ResultFragment extends Fragment {
         });
         if (getArguments() != null) {
             String responseString = getArguments().getString("responseString");
-            if(responseString!=null){
+            if (responseString != null) {
                 populatedata(responseString);
             }
 
@@ -92,65 +96,71 @@ public class ResultFragment extends Fragment {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(nni==null){
-
-                }else{
-                    LoadingFragment detailsFragment = new LoadingFragment();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("nni", nni);
-                    bundle.putInt("type", 3);
-                    detailsFragment.setArguments(bundle);
-                    getActivity().getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.frame_layout, detailsFragment)
-                            .commit();
+                if (nni == null) {
+                    if (nud != null)
+                        loadFragment(nud, 5);
+                } else {
+                    loadFragment(nni, 3);
                 }
 
             }
         });
     }
-    private  void populatedata(String jsonString){
+
+    private void populatedata(String jsonString) {
         try {
             JSONObject jsonObject = new JSONObject(jsonString);
 
             // Set data to TextViews
             textName.setText(jsonObject.getString("nom"));
             textNNI.setText(jsonObject.getString("nni"));
-           String nud = jsonObject.getString("nud");
-           String requestid = jsonObject.getString("requestId");
-            editor.putString("nud",nud);
-            editor.putString("requestid",requestid);
+            String nud = jsonObject.getString("nud");
+            String requestid = jsonObject.getString("requestId");
+            editor.putString("nud", nud);
+            editor.putString("requestid", requestid);
             editor.commit();
 
             //textNUD.setText(nud);
             String typeperson = jsonObject.getString("typePersonne");
-            if(typeperson.equals("C")){
+            if (typeperson.equals("C")) {
                 textTypePerson.setText("Type Personne: Citoyen");
             }
-            if(typeperson.equals("R")){
+            if (typeperson.equals("R")) {
                 textTypePerson.setText("Type Personne: Résident");
             }
-            if(typeperson.equals("V")){
+            if (typeperson.equals("V")) {
                 textTypePerson.setText("Type Personne: Visiteur");
             }
-          int result = jsonObject.getInt("score");
+            int result = jsonObject.getInt("score");
 
             String decision = jsonObject.getString("decision");
-            if(decision.equals("HIT")){
+            if (decision.equals("HIT")) {
                 textDecision.setText("CANDIDAT CONFIRMÉ");
                 textDecision.setTextColor(ContextCompat.getColor(context, R.color.light_green)); // Assuming you have defined a color resource named red
-            }else{
+            } else {
                 textDecision.setTextColor(ContextCompat.getColor(context, R.color.red)); // Assuming you have defined a color resource named red
                 textDecision.setText("CANDIDAT POTENTIEL");
             }
 
             textScore.setText(String.valueOf(result));
             nni = jsonObject.getString("nni");
-            if(nni==null){
+            if (nni == null) {
                 btn.setEnabled(false);
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    private void loadFragment(String nni, int type) {
+        LoadingFragment detailsFragment = new LoadingFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("nni", nni);
+        bundle.putInt("type", type);
+        detailsFragment.setArguments(bundle);
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.frame_layout, detailsFragment)
+                .commit();
     }
 
 }
